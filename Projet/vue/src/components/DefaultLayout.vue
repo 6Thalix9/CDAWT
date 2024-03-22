@@ -170,16 +170,19 @@ import { useStore } from "vuex";
 import { computed } from "vue";
 import { useRouter } from "vue-router";
 
-const user = {
-  name: "Tom Cook",
-  email: "tom@example.com",
-  imageUrl:
-    "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-};
+const store = useStore();
+const router = useRouter();
+
 const navigation = [
   { name: "Dashboard", to: { name: "Dashboard" } },
   { name: "Classement", to: { name: "Classement" } },
   { name: "Partie", to: { name: "Partie" } },
   { name: "Amis", to: { name: "Amis" } },
 ];
+
+const logout = () => {
+  store.commit("logout");
+  router.push({ name: "Login" });
+};
+const user = computed(() => store.state.user.data);
 </script>
