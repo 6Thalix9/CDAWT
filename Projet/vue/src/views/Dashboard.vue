@@ -1,5 +1,7 @@
 <template>
-  <PageComponent titre="Dashboard"> Content Burasi </PageComponent>
+  <PageComponent titre="Embarquez pour Celesterra">
+    Content Burasi
+  </PageComponent>
 </template>
 
 <script setup>

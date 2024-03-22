@@ -174,7 +174,7 @@ const store = useStore();
 const router = useRouter();
 
 const navigation = [
-  { name: "Dashboard", to: { name: "Dashboard" } },
+  { name: "Acceuil", to: { name: "Dashboard" } },
   { name: "Classement", to: { name: "Classement" } },
   { name: "Partie", to: { name: "Partie" } },
   { name: "Amis", to: { name: "Amis" } },
