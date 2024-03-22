@@ -18,7 +18,7 @@ return new class extends Migration {
             $table->timestamp('played_at')->useCurrent();
             $table->string('winner', 60);
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('game_id')->references('id')->on('parties')->onDelete('cascade');
+
 
             $table->timestamps();
         });

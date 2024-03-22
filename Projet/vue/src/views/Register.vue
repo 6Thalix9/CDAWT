@@ -13,7 +13,7 @@
   </div>
 
   <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-    <form class="space-y-6" action="#" method="POST">
+    <form class="space-y-6" @submit="register">
       <div>
         <label
           for="pseude"
@@ -22,11 +22,12 @@
         >
         <div class="mt-2">
           <input
-            id="pseudo"
-            name="pseudo"
+            id="name"
+            name="name"
             type="text"
             autocomplete="name"
             required=""
+            v-model="user.name"
             class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
           />
         </div>
@@ -44,6 +45,7 @@
             type="email"
             autocomplete="email"
             required=""
+            v-model="user.email"
             class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
           />
         </div>
@@ -57,6 +59,7 @@
             >Mot de passe</label
           >
         </div>
+
         <div class="mt-2">
           <input
             id="password"
@@ -64,6 +67,28 @@
             type="password"
             autocomplete="current-password"
             required=""
+            v-model="user.password"
+            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+          />
+        </div>
+      </div>
+      <div>
+        <div class="flex items-center justify-between">
+          <label
+            for="password_confirmation"
+            class="block text-sm font-medium leading-6 text-gray-900"
+            >Confirmer votre Mot de passe</label
+          >
+        </div>
+
+        <div class="mt-2">
+          <input
+            id="password_confirmation"
+            name="password_confirmation"
+            type="password"
+            autocomplete="current-password_confirmation"
+            required=""
+            v-model="user.password_confirmation"
             class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
           />
         </div>
@@ -91,10 +116,24 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: "Register",
+<script setup>
+import store from "../store/index1.js";
+import { useRouter } from "vue-router";
+const router = useRouter();
+const user = {
+  name: "",
+  email: "",
+  password: "",
+  password_confirmation: "",
 };
+function register(ev) {
+  ev.preventDefault();
+  store.dispatch("register", user).then((res) => {
+    router.push({
+      name: "Dashboard",
+    });
+  });
+}
 </script>
 
 <style scoped></style>
