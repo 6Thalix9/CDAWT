@@ -49,7 +49,7 @@ class AuthController extends Controller
 
         if (!Auth::attempt($credentials, $remember)) {
             return response([
-                'error' => 'Vos données ne correspondent pas à un compte'
+                'error' => 'Vos données ne correspondent pas à un compte, Email ou  mot de passe incorrect'
             ], 422);
         }
 
@@ -63,5 +63,18 @@ class AuthController extends Controller
 
 
 
+
+
+    }
+    public function logout()
+    {
+        /** @var User $user */
+        $user = Auth::user();
+
+        $user->currentAccessToken()->delete();
+
+        return response([
+            'success' => true,
+        ]);
     }
 }

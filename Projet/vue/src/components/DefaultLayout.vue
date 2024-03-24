@@ -165,7 +165,7 @@ import {
   MenuItem,
   MenuItems,
 } from "@headlessui/vue";
-import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/vue/24/outline";
+
 import { useStore } from "vuex";
 import { computed } from "vue";
 import { useRouter } from "vue-router";
@@ -181,8 +181,11 @@ const navigation = [
 ];
 
 const logout = () => {
-  store.commit("logout");
-  router.push({ name: "Login" });
+  store.dispatch("logout").then(() => {
+    router.push({
+      name: "Login",
+    });
+  });
 };
 const user = computed(() => store.state.user.data);
 </script>

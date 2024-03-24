@@ -12,8 +12,9 @@ return new class extends Migration {
     {
         Schema::create('amis', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id1');
-            $table->unsignedBigInteger('user_id2');
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('friend_id');
+
             $table->foreign('user_id1')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('user_id2')->references('id')->on('users')->onDelete('cascade');
 
