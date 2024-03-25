@@ -14,7 +14,7 @@ return new class extends Migration {
             $table->id();
             $table->unsignedBigInteger('creator_id');
             $table->integer('max_players')->default(3); // Including the creator
-            $table->dateTime('game_date');
+            $table->timestamp('game_date')->useCurrent();
             $table->boolean('is_public')->default(true);
             $table->boolean('started')->default(false);
             $table->boolean('finished')->default(false);

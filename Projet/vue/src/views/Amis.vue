@@ -92,25 +92,4 @@ export default {
 };
 </script>
 
-<style scoped>
-.amis {
-  /* Styles de base pour votre composant */
-}
-
-.send-request,
-.friend-requests,
-.friends-list {
-  margin-bottom: 20px;
-}
-
-.send-request input,
-.friend-requests ul,
-.friends-list ul {
-  margin-top: 10px;
-}
-
-.send-request button,
-.friend-requests button {
-  margin-left: 10px;
-}
-</style>
+<style></style>
