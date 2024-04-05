@@ -13,8 +13,8 @@ class PartieController extends Controller
     {
 
 
-        // Assurez-vous que le modèle est correctement nommé et importé
-        $nouvellePartie = new Parties; // Utilisez 'Partie' si c'est le nom de votre modèle
+
+        $nouvellePartie = new Parties;
         $nouvellePartie->creator_id = 1;
         $nouvellePartie->max_players = $request->partie["max_players"];
         $nouvellePartie->is_public = filter_var($request->partie['is_public'], FILTER_VALIDATE_BOOLEAN);

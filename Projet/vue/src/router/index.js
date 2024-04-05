@@ -8,7 +8,7 @@ import store from '../store/index1.js';
 import AuthLayout from '../components/AuthLayout.vue';
 import Amis from '../views/Amis.vue';
 import Partie from '../views/Partie.vue';
-
+import PartieView from '../views/PartieView.vue';
 
 const routes = [
     {
@@ -20,6 +20,7 @@ const routes = [
           {path: '/classement', name:'Classement', component: Classement},
           {path: '/partie', name:'Partie', component: Partie},
           {path: '/amis', name:'Amis', component: Amis},
+          {path: '/partie/create', name:'PartieCreate', component: PartieView},
         ]
 
 

@@ -1,12 +1,27 @@
 import{createStore} from "vuex";
 import axiosClient from "../axios";
 
+
+const Partie= [
+  {
+    id:100,
+    creator_id:1,
+    max_players:2,
+    is_public:"true",
+    started:"false",
+    finished:"false",
+  },
+
+
+];
+
 const store = createStore({
     state:{
         user:{
           data: {},
           token: sessionStorage.getItem('TOKEN'),
-        }
+        },
+        parties:[...Partie],
     },
     getters:{},
     actions:{
