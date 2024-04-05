@@ -1,6 +1,12 @@
 # CDAWT
 TicketToFly projet web
 
+les commandes pour démarer:
+-php artisan serve
+-php artisan migrate
+-aller dans vue et puis: npm run dev
+localhost:5133
+
 # OLD Readme
 
 <description>
